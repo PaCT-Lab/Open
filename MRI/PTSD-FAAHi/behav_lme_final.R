@@ -2,7 +2,7 @@
 # Title: behav_lme.R
 # Author: Ryann Tansey
 # Date: November 23, 2023
-# Last updated: March 12, 2024
+# Last updated: April 29, 2024
 # 
 # A script to do the group analysis on the fMRI emotional conflict task data 
 #   for the PTSD/FAAHi study (PI: Dr. Leah Mayo). See: [publication here]
@@ -20,7 +20,7 @@ library(emmeans)
 library(ggplot2)
 
 # Read in the data from Matlab
-alldata <- read.csv('/Users/ryann.tansey/Documents/projects/PTSD_FAAHi/emotion_conflict_task/behav_alldata.csv')
+alldata <- read.csv('/Users/.../behav_alldata.csv')
 
 # Create variables to test for the interaction (previous trial, current trial)
 alldata$prev_trial <- with(alldata, ifelse(grepl("con_1", category_str, fixed = TRUE) |
@@ -48,9 +48,9 @@ hits <- alldata[which(alldata$stim_type == 'hit'),]
 
 # Read in accuracy spreadsheets
 # One with prev_trial and curr_trial (to test interaction)
-accur_int <- read.csv('/Users/ryann.tansey/Documents/projects/PTSD_FAAHi/emotion_conflict_task/behav_accur_etkin.csv')
+accur_int <- read.csv('/Users/.../behav_accur_etkin.csv')
 # One with emotion and curr_trial
-accur_emo <- read.csv('/Users/ryann.tansey/Documents/projects/PTSD_FAAHi/emotion_conflict_task/behav_accur_emotion.csv')
+accur_emo <- read.csv('/Users/.../behav_accur_emotion.csv')
 
 
 # Run the LMEs
